@@ -7,6 +7,7 @@ import '../../utils.dart';
 
 // ignore: must_be_immutable
 class OpenAddDialog extends StatefulWidget {
+  // final BuildContext context;
   const OpenAddDialog({super.key});
 
   @override
@@ -27,7 +28,7 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
 
   //For adding data to database
   Future<void> addTab() async {
-    // print(dropDownValue);
+    print("tes $dropDownValue");
     final dbServiceInstance = DatabaseService();
     await dbServiceInstance.addActivity({
       DatabaseService.type: dropDownValue!.toLowerCase(),
@@ -44,7 +45,7 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       child: StatefulBuilder(
-        builder: (BuildContext context, StateSetter stateSetter) {
+        builder: (_, StateSetter stateSetter) {
           return SizedBox(
             height: 220,
             child: Padding(
@@ -128,13 +129,15 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                   const SizedBox(
                     height: 10,
                   ),
-                  IconButton(
-                    color: Colors.redAccent,
-                    iconSize: 60,
-                    icon: const Icon(
-                      Icons.double_arrow_outlined,
+                  Expanded(
+                    child: IconButton(
+                      color: Colors.redAccent,
+                      iconSize: 60,
+                      icon: const Icon(
+                        Icons.double_arrow_outlined,
+                      ),
+                      onPressed: () async => await addTab(),
                     ),
-                    onPressed: () async => await addTab(),
                   ),
                 ],
               ),
