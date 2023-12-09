@@ -28,7 +28,6 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
 
   //For adding data to database
   Future<void> addTab() async {
-    print("tes $dropDownValue");
     final dbServiceInstance = DatabaseService();
     await dbServiceInstance.addActivity({
       DatabaseService.type: dropDownValue!.toLowerCase(),
