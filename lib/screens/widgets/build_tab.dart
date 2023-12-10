@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import '../../global_var.dart';
 import '../../utils.dart';
 
+// ignore: must_be_immutable
 class BuildTab extends StatefulWidget {
   final String text;
   String selectedTab;

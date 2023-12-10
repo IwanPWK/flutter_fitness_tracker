@@ -59,6 +59,7 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                     height: 15,
                   ),
                   Row(
+                    // mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Flexible(
@@ -82,6 +83,7 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                       Flexible(
                         flex: 1,
                         child: DropdownButton(
+                          isExpanded: true, //fixed right overflow
                           hint: Text(
                             'Choose',
                             style: textStyle(
@@ -113,7 +115,7 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                             DropdownMenuItem(
                               value: dropDownMenu['set'],
                               child: Text(
-                                'Height',
+                                'Set',
                                 style: textStyle(
                                   18,
                                   Colors.black,
@@ -125,7 +127,7 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                             DropdownMenuItem(
                               value: dropDownMenu['repetition'],
                               child: Text(
-                                'Height',
+                                'Repetition',
                                 style: textStyle(
                                   18,
                                   Colors.black,

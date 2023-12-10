@@ -17,15 +17,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController myController = TextEditingController();
+  // final TextEditingController myController = TextEditingController();
   // String dropDownValue = dropDownMenu['weight']!;
   String selectedTab = tabMenu['all']!; // Nilai selectedTab
 
-  @override
-  void dispose() {
-    myController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   myController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -200,7 +200,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               title: Text(
                                 activity.type == 'weight'
                                     ? '${activity.data} kg'
-                                    : '${activity.data} cm',
+                                    : activity.type == 'set'
+                                        ? '${activity.data} set'
+                                        : 'rep',
                                 style: textStyle(
                                   20,
                                   Colors.black,
