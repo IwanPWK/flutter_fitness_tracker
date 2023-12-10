@@ -7,8 +7,9 @@ import '../../utils.dart';
 
 // ignore: must_be_immutable
 class OpenAddDialog extends StatefulWidget {
+  final Function() onInput;
   // final BuildContext context;
-  const OpenAddDialog({super.key});
+  const OpenAddDialog({super.key, required this.onInput});
 
   @override
   State<OpenAddDialog> createState() => _OpenAddDialogState();
@@ -36,8 +37,10 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
     });
     myController.clear();
     if (!mounted) return;
+
     Navigator.of(context).pop();
-    setState(() {});
+    // onInput();
+    // setState(() {});
   }
 
   @override
@@ -151,7 +154,10 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                       icon: const Icon(
                         Icons.double_arrow_outlined,
                       ),
-                      onPressed: () async => await addTab(),
+                      onPressed: () async {
+                        await addTab();
+                        widget.onInput();
+                      },
                     ),
                   ),
                 ],
