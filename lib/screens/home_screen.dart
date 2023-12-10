@@ -18,8 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController myController = TextEditingController();
-  String? dropDownValue = dropDownMenu['weight'];
-  String? selectedTab = tabMenu['all']; // Nilai selectedTab
+  // String dropDownValue = dropDownMenu['weight']!;
+  String selectedTab = tabMenu['all']!; // Nilai selectedTab
 
   @override
   void dispose() {
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 15,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 15.0),
+                    padding: const EdgeInsets.only(left: 15.0),
                     child: Row(
                       children: [
                         BuildTab(
@@ -101,7 +101,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                         ),
                         BuildTab(
-                          text: 'Height',
+                          text: 'Set',
+                          selectedTab: selectedTab,
+                          onTabSelected: (tabText) {
+                            setState(() {
+                              selectedTab =
+                                  tabText; // Update nilai selectedTab saat tab dipilih
+                            });
+                          },
+                        ),
+                        BuildTab(
+                          text: 'Repetition',
                           selectedTab: selectedTab,
                           onTabSelected: (tabText) {
                             setState(() {
@@ -221,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
             },
-            future: DatabaseService().getActivities(selectedTab!),
+            future: DatabaseService().getActivities(selectedTab),
           ),
         ],
       ),

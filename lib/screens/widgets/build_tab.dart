@@ -5,13 +5,13 @@ import '../../utils.dart';
 
 class BuildTab extends StatefulWidget {
   final String text;
-  String? selectedTab;
+  String selectedTab;
   final Function(String) onTabSelected;
   BuildTab(
       {super.key,
       required this.text,
       required this.onTabSelected,
-      this.selectedTab});
+      required this.selectedTab});
 
   @override
   State<BuildTab> createState() => _BuildTabState();

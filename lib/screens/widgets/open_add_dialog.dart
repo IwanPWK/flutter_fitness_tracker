@@ -68,7 +68,9 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                           decoration: InputDecoration(
                               hintText: dropDownValue == dropDownMenu['weight']
                                   ? 'In kg'
-                                  : 'In cm',
+                                  : dropDownValue == dropDownMenu['set']
+                                      ? 'Set'
+                                      : 'Rep',
                               border: const OutlineInputBorder(
                                   borderSide: BorderSide(
                                       width: 1, color: Colors.black))),
@@ -109,7 +111,19 @@ class _OpenAddDialogState extends State<OpenAddDialog> {
                               ),
                             ),
                             DropdownMenuItem(
-                              value: dropDownMenu['height'],
+                              value: dropDownMenu['set'],
+                              child: Text(
+                                'Height',
+                                style: textStyle(
+                                  18,
+                                  Colors.black,
+                                  FontWeight.w600,
+                                  fontType: 3,
+                                ),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: dropDownMenu['repetition'],
                               child: Text(
                                 'Height',
                                 style: textStyle(

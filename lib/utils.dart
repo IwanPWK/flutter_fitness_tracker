@@ -3,13 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 const Map<String, String> dropDownMenu = {
   'weight': 'Weight',
-  'height': 'Height',
+  'set': 'Set',
+  'repetition': 'Repetition',
 };
 
 const Map<String, String> tabMenu = {
   'all': 'All',
-  'weight': 'Weight',
-  'height': 'Height',
+  'set': 'Set',
+  'repetition': 'Repetition',
 };
 
 TextStyle textStyle(
